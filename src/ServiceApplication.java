@@ -1,4 +1,5 @@
-package PACKAGE_NAME;
-
 public interface ServiceApplication {
+
+    public void mutuelApplied();
+    public void certificateOfbeingAliveApplied();
 }

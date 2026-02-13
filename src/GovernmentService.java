@@ -1,4 +1,5 @@
-package PACKAGE_NAME;
+public abstract class GovernmentService {
 
-public class GovernmentService {
+    public abstract String mutuelService();
+    public abstract String certificateOfBeingAliveService();
 }
