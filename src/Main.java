@@ -7,6 +7,7 @@ public class Main {
 
         Citizen citizen1 = new Citizen();
         ManagerApplication application1 = new ManagerApplication(citizen1);
+        int[] array = new int[100];
 
         boolean isregistered = true;
 
@@ -35,7 +36,7 @@ public class Main {
         String confirmPassword = scanner.nextLine();
         citizen1.setConfirmPassword(confirmPassword);
 
-        if(!isregistered) {
+        if (!isregistered) {
             if (email != null && phoneNumber != 0 && confirmPassword.equals(password) && password != null && confirmPassword != null) {
 
                 System.out.println(citizen1.signUp());
@@ -68,72 +69,101 @@ public class Main {
                 System.out.println(citizen1.signUp());
             }
 
-        }
-            else{
+        } else {
+            for (int i = 0; i <= array.length; i++) {
                 if (email != null && phoneNumber != 0 && password != null) {
-
-                System.out.println(citizen1.login());
-                }
-                else{
-
-                    System.out.println("Enter again Your email and Password");
-
-                    System.out.print("Enter Your Id: ");
-                    id = scanner.nextInt();
-                    citizen1.setId(id);
-
-                    System.out.print("Enter Your email: ");
-                    email = scanner.nextLine();
-                    citizen1.setEmail(email);
-
-                    System.out.print("Enter Your Password: ");
-                    password = scanner.nextLine();
-                    citizen1.setPassword(password);
                     System.out.println(citizen1.login());
 
+                    System.out.println("1. Pay mutuel");
+                    System.out.println("2. Pay Certificate Of Being Alive");
+                    System.out.print("Choose a number: ");
+                    inputNumber = scanner.nextInt();
+                    scanner.nextLine();
+                    if (inputNumber == 1) {
 
 
+                        System.out.println(citizen1.mutuelService());
+                        System.out.print("Enter Your MutuelApplication: ");
+                        String mutuel = scanner.nextLine();
+                        citizen1.setMutuel(mutuel);
 
+                        application1.setId(citizen1.getId());
+                        application1.setMutuel(citizen1.getMutuel());
+
+                        application1.mutuelApplied();
+
+
+                    } else {
+                        System.out.println(citizen1.certificateOfBeingAliveService());
+
+                        System.out.print("Enter Your Certificate of Being Alive Application: ");
+                        String certificateOfBeingAlive = scanner.nextLine();
+                        citizen1.setCertificateOfBeingAlive(certificateOfBeingAlive);
+
+                        application1.setId(citizen1.getId());
+                        application1.setCertificateOfBeingAlive(citizen1.getCertificateOfBeingAlive());
+
+                        application1.certificateOfbeingAliveApplied();
+                    }
+
+
+                } else {
+                    for (i = 0; i <= array.length; i++) {
+                        System.out.println("Enter again Your email and Password");
+
+                        System.out.print("Enter Your Id: ");
+                        id = scanner.nextInt();
+                        citizen1.setId(id);
+
+                        System.out.print("Enter Your email: ");
+                        email = scanner.nextLine();
+                        citizen1.setEmail(email);
+
+                        System.out.print("Enter Your Password: ");
+                        password = scanner.nextLine();
+                        citizen1.setPassword(password);
+                        System.out.println(citizen1.login());
+
+
+                        System.out.println("1. Pay mutuel");
+                        System.out.println("2. Pay Certificate Of Being Alive");
+                        System.out.print("Choose a number: ");
+                        inputNumber = scanner.nextInt();
+                        scanner.nextLine();
+                        if (inputNumber == 1) {
+                            System.out.println(citizen1.mutuelService());
+
+                            System.out.print("Enter Your MutuelApplication: ");
+                            String mutuel = scanner.nextLine();
+                            citizen1.setMutuel(mutuel);
+
+                            application1.setId(citizen1.getId());
+                            application1.setMutuel(citizen1.getMutuel());
+
+                            application1.mutuelApplied();
+
+                        } else {
+                            System.out.println(citizen1.certificateOfBeingAliveService());
+                            System.out.print("Enter Your Certificate of Being Alive Application: ");
+                            String certificateOfBeingAlive = scanner.nextLine();
+                            citizen1.setCertificateOfBeingAlive(certificateOfBeingAlive);
+
+                            application1.setId(citizen1.getId());
+                            application1.setCertificateOfBeingAlive(citizen1.getCertificateOfBeingAlive());
+
+                            application1.certificateOfbeingAliveApplied();
+                        }
+                    }
+                }
             }
 
         }
 
-        System.out.println("1. Pay mutuel");
-        System.out.println("2. Pay Certificate Of Being Alive");
-        System.out.print("Choose a number: ");
-        inputNumber = scanner.nextInt();
-        scanner.nextLine();
-        if(inputNumber == 1){
-            System.out.println(citizen1.mutuelService());
 
-            System.out.print("Enter Your MutuelApplication: ");
-            String mutuel = scanner.nextLine();
-            citizen1.setMutuel(mutuel);
-
-            application1.setId(citizen1.getId());
-            application1.setMutuel(citizen1.getMutuel());
-
-            application1.mutuelApplied();
-
-
-
-        }
-
-        else{
-            System.out.println(citizen1.certificateOfBeingAliveService());
-
-            System.out.print("Enter Your Certificate of Being Alive Application: ");
-            String certificateOfBeingAlive = scanner.nextLine();
-            citizen1.setCertificateOfBeingAlive(certificateOfBeingAlive);
-
-            application1.setId(citizen1.getId());
-            application1.setCertificateOfBeingAlive(citizen1.getCertificateOfBeingAlive());
-
-            application1.certificateOfbeingAliveApplied();
-        }
-        }
-
-
-
-
+    }
 }
+
+
+
+
+

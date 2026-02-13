@@ -15,7 +15,7 @@ public class ManagerApplication implements ServiceApplication {
 
     ArrayList<String> applications = new ArrayList<>();
 
-    int [] array = new int [100];
+
     public ManagerApplication(Citizen citizen) {
         this.citizen = citizen;
     }
